@@ -1,0 +1,39 @@
+What's changing:
+every node that checks for true_love flag changed to is_romanced flag
+in BioD_Nor_204bAndersonHackett_LOC_INT.pcc changing setting the plot completion of true love based on true_love instead of is_romanced
+cheating breakup conversations I think will happen if you set someone as true love - but won't break anything (no flags beyond "you were confronted" are set in those dialogues)?
+
+Liara:   613 -> 545
+Ashley:  615 -> 547
+Tali:    618 -> 227
+Traynor: 885 -> 883
+Miranda: 1815 -> 1816 (also 3748 -> 1816, citadel party flag)
+Jack:    891 -> 890
+Henchmen.Jack.Romance_Accepted (bool 19846) - seems fine and left as is
+
+find Traynor 882 bool (Check_Romance_Accepted_True)
+
+Miranda mod 5994? (used in EGM for cabin invite enablement)
+
+
+Traynor could_be_romantic conditional 887 changed to allow everyone, same with 883
+
+EGM cabin invite - core of it is in two files - first BioD_Nor_100CabinConv.pcc has a Cabin_Invites sequence that goes in order through love interests, 
+and if appropriate flag is found (mostly true_love, but some non-companions or modded stuff uses different ones). It only ever hits one, and when it does it sets the text of the invite (there is just one interactable thing with single label),
+and sets plot int 29410 with a value representing that companion. Then in actual scene, BioD_Nor_102Invites.pcc, it chooses who to show and with whom the actual scene is depending on that plot int.
+
+plan for cabin invite - add a new plot int per companion (+ global counter plot int) that would could whether (and how many times) that companion got invited up. Then that would be checked, and if they already were invited (with value greater than current global counter value)
+instead of inviting them we can continue down the list. Finally, at the end of it we increase counter value, allowing to invite all LIs in a cycle. Assuming I understand correctly EGM that this is a repeatable thing of course.
+
+Mods this was done against:
+AHEM
+Citadel Epilogue Mod
+EGM full
+LE3Patch
+LE3 Diversification Project
+Miranda Mod
+Spectre Expansion Mod (no incompatibilities found)
+N7: A Spectre's Gift (no incompatibilities found)
+Omega Hub (no incompatibilities found)
+Take Earth Back
+Virmire Savior 
