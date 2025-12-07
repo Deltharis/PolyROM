@@ -25,6 +25,24 @@ and sets plot int 29410 with a value representing that companion. Then in actual
 plan for cabin invite - add a new plot int per companion (+ global counter plot int) that would could whether (and how many times) that companion got invited up. Then that would be checked, and if they already were invited (with value greater than current global counter value)
 instead of inviting them we can continue down the list. Finally, at the end of it we increase counter value, allowing to invite all LIs in a cycle. Assuming I understand correctly EGM that this is a repeatable thing of course.
 
+
+
+Added bools/ints (in EGM BioD_Nor_100CabinConv.pcc, relating to cabin invites): 
+31530 - bool whether counters were initialized
+31531 - global_counter
+31532 - liara
+31533 - garrus
+31534 - tali
+31535 - kaidan
+31536 - ash
+31537 - pilot
+31538 - traynor
+31539 - miranda
+31540 - thane
+31541 - jack
+31542 - joker
+
+
 Mods this was done against:
 AHEM 1.6
 Citadel Epilogue Mod 1.1.2
@@ -37,3 +55,27 @@ N7: A Spectre's Gift 1.0.4 (no incompatibilities found)
 Omega Hub 1.1.0 (no incompatibilities found)
 Take Earth Back 1.5.1
 Virmire Savior 1.12
+
+----------------------
+random notes:
+
+Miranda EGM conditional:
+((plot.bools[28890] == Bool true) && 
+(plot.bools[21750] == Bool true) &&  //romance accepted, should be set I think
+(plot.bools[28779] == Bool false //Miranda initialized (I think)
+
+Jack EGM conditional:
+(
+	(
+		(plot.ints[10200] != i0) && //mission completion thingy
+		(plot.ints[10200] > plot.ints[29000]) && //mission completion thingy
+		(plot.ints[10200] >= plot.ints[10165]) && //mission completion thingy
+		(plot.ints[10200] <= (plot.ints[10165] + i1)) &&  //mission completion thingy
+		(plot.bools[197] == Bool false) && //Jack not dead
+		(plot.bools[179] == Bool true) && // Jack loyal in ME2
+		(plot.bools[5208] == Bool true) && // had sex in ME2
+		(plot.bools[19708] == Bool false) && // not dumped
+		(plot.bools[19706] == Bool true) // apologised
+	) || 
+	(plot.ints[29501] == i7)
+)
