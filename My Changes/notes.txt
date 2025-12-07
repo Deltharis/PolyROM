@@ -26,14 +26,14 @@ plan for cabin invite - add a new plot int per companion (+ global counter plot 
 instead of inviting them we can continue down the list. Finally, at the end of it we increase counter value, allowing to invite all LIs in a cycle. Assuming I understand correctly EGM that this is a repeatable thing of course.
 
 Mods this was done against:
-AHEM
-Citadel Epilogue Mod
-EGM full
-LE3Patch
-LE3 Diversification Project
-Miranda Mod
-Spectre Expansion Mod (no incompatibilities found)
-N7: A Spectre's Gift (no incompatibilities found)
-Omega Hub (no incompatibilities found)
-Take Earth Back
-Virmire Savior 
+AHEM 1.6
+Citadel Epilogue Mod 1.1.2
+EGM full 1.0.5
+LE3Patch 1.7.8
+Miranda Mod 2.0.13
+LE3 Diversification Project 1.4.1 (no incompatibilities after choosing to delete the quiet flag changes)
+Spectre Expansion Mod 1.4.1.1 (no incompatibilities found)
+N7: A Spectre's Gift 1.0.4 (no incompatibilities found)
+Omega Hub 1.1.0 (no incompatibilities found)
+Take Earth Back 1.5.1
+Virmire Savior 1.12
